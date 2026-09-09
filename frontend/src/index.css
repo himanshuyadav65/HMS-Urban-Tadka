@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: 'Inter', 'Outfit', sans-serif;
+    @apply bg-[#FAF8F5] text-slate-900 transition-colors duration-200 ease-in-out antialiased;
+  }
+  
+  body.dark {
+    @apply bg-[#0D0906] text-[#F5EDE4];
+  }
+
+  h1, h2, .font-serif-luxury {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  select {
+    @apply bg-white dark:bg-[#0d1c2d] text-slate-800 dark:text-[#d4e4fa] border-slate-200 dark:border-slate-800;
+  }
+
+  option {
+    @apply bg-white dark:bg-[#0d1c2d] text-slate-800 dark:text-[#d4e4fa];
+  }
+
+  /* Browser Native Date & Calendar Theme Synchronization */
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"] {
+    color-scheme: light;
+  }
+
+  .dark input[type="date"],
+  .dark input[type="time"],
+  .dark input[type="datetime-local"],
+  .dark input[type="month"],
+  .dark [type="date"],
+  .dark [type="datetime-local"] {
+    color-scheme: dark;
+  }
+}
+
+/* Calendar picker icon styling for Dark & Light modes */
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 4px;
+  transition: all 0.2s ease;
+  opacity: 0.85;
+}
+
+::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  background-color: rgba(148, 163, 184, 0.2);
+}
+
+.dark ::-webkit-calendar-picker-indicator,
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(100) !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.dark ::-webkit-calendar-picker-indicator:hover,
+.dark input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-amber-500/40;
+}
+
+/* Glassmorphic Panel Styles - Fully Adaptive to Light & Dark */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-panel {
+  background: rgba(18, 13, 9, 0.88);
+  border: 1px solid rgba(201, 148, 54, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-gold {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 148, 54, 0.35);
+  box-shadow: 0 10px 30px -5px rgba(201, 148, 54, 0.15);
+}
+
+.dark .glass-panel-gold {
+  background: rgba(22, 16, 11, 0.92);
+  border: 1px solid rgba(201, 148, 54, 0.3);
+  box-shadow: 0 0 25px rgba(201, 148, 54, 0.18);
+}
+
+/* Premium Card Styles */
+.glass-card {
+  background: #ffffff;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  border-radius: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .glass-card {
+  background: rgba(22, 15, 10, 0.88);
+  border: 1px solid rgba(201, 148, 54, 0.15);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card:hover {
+  border-color: rgba(201, 148, 54, 0.45);
+  box-shadow: 0 12px 30px -5px rgba(201, 148, 54, 0.15);
+}
+
+.dark .glass-card:hover {
+  border-color: rgba(201, 148, 54, 0.45);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.7);
+}
+
+.glow-btn {
+  @apply relative overflow-hidden transition-all duration-300 active:scale-95 shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/40;
+}
+
+/* Gold Gradient utilities */
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #DFB262 0%, #C99436 50%, #8C5D17 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #F9E2A8 0%, #DFB262 50%, #C99436 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Status Glow Pills */
+.status-pill-available {
+  @apply bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-[0_0_12px_rgba(16,185,129,0.2)];
+}
+
+.status-pill-occupied {
+  @apply bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 shadow-[0_0_12px_rgba(59,130,246,0.2)];
+}
+
+.status-pill-cleaning {
+  @apply bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 shadow-[0_0_12px_rgba(245,158,11,0.2)];
+}
+
+.status-pill-maintenance {
+  @apply bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 shadow-[0_0_12px_rgba(244,63,94,0.2)];
+}
+
+.status-pill-vip {
+  @apply bg-amber-500/15 text-amber-500 dark:text-[#f2ca50] border border-amber-500/30 shadow-[0_0_15px_rgba(212,175,55,0.3)];
+}
+
+/* Custom Grid Columns for 15-day scheduler view */
+.grid-cols-15 {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+}
+
+/* Hide number input spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
